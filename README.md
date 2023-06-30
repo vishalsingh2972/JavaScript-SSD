@@ -1,2 +1,2 @@
- **Falling in Love with JavaScript** ❤️
+**Falling in Love with JavaScript** ❤️
 
