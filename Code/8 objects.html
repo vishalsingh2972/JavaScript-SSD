@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Objects</title>
+    
+  </head>
+
+  <body>
+    <script>
+      
+//What is an Object? - An Object groups multiple values together
+//Why we use Objects? - make our code more organised; objects let us group multiple values together; objects let us use multiple values together
+
+/*
+      //const product = {}; //here {} is an object and inside this object we can add the values like below
+      const product = {
+        name: 'socks',
+        price: 1090
+      }; //here 'socks' & 1090 are values AND name & price are Property //and here name: 'socks' and price: 1090 are the Property-Value Pair
+
+      console.log(product);
+      console.log(product.name); //this syntax is called Dot Notation //here we are accesing specific values in the object using a Property //here .name will access the value that is associated with the name Property which is here the String 'socks' //so here product.name === 'socks'
+      console.log(product.price);
+
+      //using the Property to change a value inside an Object
+      product.name = 'COTTON socks';
+      //product.name = 88;
+      console.log(product);
+      console.log(product.name);
+
+      //adding a new value to the Object
+      product.newProperty = true;
+      console.log(product);
+
+      //remove a value from the Object
+      delete product.newProperty;
+      console.log(product);
+
+      console.log(typeof product);
+*/
+
+///*
+      const product2 = {
+        name: 'shirt',
+//Adding new values to the object using Bracket Notation
+        ['delivery-time']: '1 day',
+        //'delivery-time': '1 day' //will work same as above, when have only String between the brackets, in such a case brackets are optional and can be removed also
+
+//object can also be added inside object - like here rating object inside product2 object
+        rating:{ //so here rating object is known as a nested object (an object inside an object)
+          stars: 4.5,
+          count: 87          
+        },
+
+//function inside an object
+        funk: function function1(){
+          console.log('reached function inside object');
+        } 
+      };
+      console.log(product2);
+      console.log(product2.name); //we have already learned above - Dot Notation to access values present inside object using .Property
+
+//Another way to access values present inside objects // by using square brackets []
+      console.log(product2['name']); //here [ ] is known as Bracket Notation and basically does the same thing as shown above in the case of Dot Notation --> product2.name
+//So as you can see both Dot Notation(-->product2.name) and Bracket Notation(-->product2['name']) give the same result 
+
+//When do we use Bracket Notation instead of the Dot Notation - Bracket Notation lets us use properties that don't work with Dot Notation
+//Eg:
+
+      //console.log(product2.delivery); //Dot Notation - NO ERROR //gives output as undefined
+      //console.log(product2.delivery-time); //BUT //Dot Notation does not work in this case and gives error //error because in delivery-time JS thinks '-' as minus sign and it tries to do math and hence gives error
+
+      //So in order to use a Property like 'delivery-time' we need to use Bracket Notation
+      console.log(product2['delivery-time']); //Bracket Notation works and gives output as undefined //After adding output as 1 day
+
+//Also in Bracket Notation, between the brackets not just string like in case of product2['delivery-time'], we can also use a variable -> product2[variable1] and also do calculation -> product2['delivery' + 'time'] and also anything that results in a value can be used between the brackets
+
+//Which one should we use? - we use Dot Notation by default but for properties that don't work with Dot Notation then we use Bracket Notation 
+
+//Accesing Nested Objects or object present inside object
+      console.log(product2.rating.count); //product2 object main rating object ka count property
+      console.log(product2.rating.stars); //product2 object main rating object ka stars property
+
+//Accesing function present inside object
+      console.log(product2.funk());
+      console.log(typeof console);
+      console.log(typeof console.log); //log is a function that is saved inside the console object
+      console.log(typeof Math);
+      console.log(typeof Math.random); //random is a function that is saved inside the Math object
+      
+//Built-in Objects //Eg of Built-in Objects - console, Math, JSON, localStorage
+
+  //JSON Built-in Object - this object helps us work with JSON
+    //JSON = Javascript Object Notation - it is a syntax similar to JS object syntax but it has less features
+    //then why use JSON over JS object if it has less features - because JSON syntax is universal and can be understood by almost all programming languages, for this reason we use JSON when we send data between computers that might be using different programming languages. We also use JSON when we store data. 
+
+    //Built-in JSON Object helps us convert JS object to JSON and vice versa
+   //Eg: Converting JS Object product2 to JSON
+
+    //console.log(product2); //JS object product2
+    console.log(JSON.stringify(product2)); //stringify is a function/method of the JSON object or stringify is a function/method present/saved inside the JSON object //inside bracket we give the JS object that we want to convert to JSON (i.e here we are giving product2 JS object)
+    console.log(typeof JSON.stringify(product2));
+
+   //Eg: Converting JSON back to JS Object
+
+    //console.log(JSON.parse(JSON.stringify(product2)));
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+  //locatStorage Built-in Object - this object helps/is used to save values more permanently
+//*/
+
+//like objects can have Property and Methods/Functions, in a similar way other values can also have properties and methods
+      console.log('hello'.length); //Strings can also have properties (like here property length) //length property tells us how many letters are there in the string
+      
+      console.log('hello'.toUpperCase()); //Strings can also have methods/functions
+
+//Strings can have properties and methods/functions as JS has a special feature called Auto-Boxing, by using Auto-Boxing JS automatically wraps the String in a special object first and this object has the property 'length' and the method 'toUpperCase'
+//Auto-Boxing also works with other types of values like numbers - 3.0.toString() and Booleans - true.toString()
+//But Auto-Boxing does not work with null - null.property and undefined - undefined.method()
+
+//Objects are References
+
+      const object1 = { 
+        message: 'hello'
+      };
+
+      console.log(object1);
+      const object2 = object1; //Copy by Reference //here object2 has same reference as object1, basically both object2 and object1 are pointing to the same object in the computer's memory
+      //console.log(object2);
+
+      object1.message = 'Good job!'; //although const does not allow us to change value of object1 but even while using const we can still change the values inside the object..........basically we cannot change the variable object1 but we can change what this variable object1 is pointing to!
+      console.log(object1);
+      //console.log(object2);
+
+  //We can't compare objects directly
+      const object3 = {
+        message: 'Good job!'
+      };
+      console.log(object3 === object1);// compares the references and not the values inside..so although values inside are same but both object3 and object1 are pointing to 2 different objects in different memory locations hence false //object3 and object1 have different references or referencing to different objects or different locations in the computer's memory
+      console.log(object2 === object1); //true as both object2 and object1 are pointing to the same object/ same memory location //object3 and object1 have same reference or referencing to same object or same location in the computer's memory
+
+   //Hence when we are comparing 2 variables that contain objects we are actually comparing the references, not the values inside
+
+//Shortcuts for Objects
+    
+    //Shortcut #1 - Destructuring
+      const object4 = {
+        message: 'Good job!',
+        price: 799
+      };
+
+      //const message = object4.message; //here the variable name message(LHS) and the property name message(RHS) are the same so we can use a shortcut like below
+      //const{ message } = object4; //shortcut for const message = object4.message; //this shortcut is called destructuring
+      //console.log(message);
+
+      const{ message,price } = object4; //same as const message = object4.message; and const price = object4.price;
+      console.log(message);
+      console.log(price);
+    //Therefore destructuring -  easier way to take properties out of an object
+
+    //Shortcut #2 - Shorthand Property
+      const object5 = {
+        //message: message //property and variable name are same so shortcut below
+        message, //same as message: message
+
+    //Shortcut #3 - Shorthand Method
+        // method: function function1() { //shortcut of this below
+        //   console.log('method143');
+        // }
+
+        method() { //shortcut for method: function function1() {
+          console.log('method143');
+        }
+        
+      };
+      console.log(object5);
+      //console.log(object5.message);
+      object5.method();
+      //console.log(object5.method);
+
+    </script>
+  </body>
+
+</html>

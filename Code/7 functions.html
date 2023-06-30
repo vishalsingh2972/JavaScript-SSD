@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Functions</title>
+  </head>
+
+  <body>
+    <script>
+      /*
+      function function1(){
+        console.log('hello bittu');
+        console.log(2 + 2);
+      }
+
+      function1(); // calling the function/running the function/executing the function
+      function1();
+      */
+
+//Parameters - lets us put/send a value into a function
+//Example 1 - function for calculating tax for our order
+
+      function calculateTax(cost, taxPercent = 0.1){ //default value is 0.1 so if taxPercent value is not passed like in case of 5000, it will use the default value 0.1 as taxPercent
+
+        console.log(taxPercent);
+        console.log(cost * taxPercent); //tax = cost * taxPercent
+      }
+
+      calculateTax(2000, 0.2);
+      calculateTax(5000);
+      //calculateTax(5000, undefined);  //works same as calculateTax(5000);
+      //calculateTax(5000, null); //null = intentionally want something to be empty 5:33:13
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Variables</title>
+  </head>
+
+  <body>
+    <script>
+    let variable1 = 3;
+    console.log(variable1);
+
+    const calculation = 2 + 2;
+    console.log(calculation);
+    console.log(calculation + 2);
+
+    const result = calculation + 2;
+    console.log(result);
+
+    const message ='hello';
+    console.log(message); console.log('bittu'); console.log(';');
+    // const message ='hello';
+    // console.log(message); console.log('bittu'); console.log(';')
+
+    variable1 = 5; 
+    console.log(variable1);
+
+    variable1 = variable1 + 2.8;
+    console.log(variable1);
+
+    const variable2 = 45; //const = can't change its value later 
+    //variable2 = 76; //this will give error in console
+    //variable2 = 45;
+
+//Best Practise is to use const by default as const makes our code safer(as cannot be changed once assigned) and easier to understand //and Only use let when we need to change the variable
+//so in case of above example we use const for calculation, result, message as we are not changing them later and we use let for variable1 as we are changing it later
+
+    var variable3 = 3; //var is actually the original way to create variables in javascript
+    variable3 = 90; //var works same as let i.e variable can be changed later BUT var has some issues like var does not follow the rules of scope and because of these issues we don't use var or avoid using var in new javascript code //you might see var in older javascript code so it's still useful to know
+
+    console.log(typeof 3);
+    console.log(typeof variable2); //we can also use typeof to check for the type of the value stored/saved inside a variable by using the variable name
+    console.log(typeof message);
+    </script>
+  </body>
+
+</html>

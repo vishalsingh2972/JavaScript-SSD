@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+
+  <body>
+    <script>
+      /*
+      greeting0(); //possible calling function before we have created it in the code - HOISTING concept
+      function greeting0(){
+        console.log('hello bittu');
+      }
+    
+      greeting0(); //calling the function (or running the function)
+
+  //Functions are Values 
+      const num = 2; //number 2 saved inside a variable num
+      //greeting(); //error HOISTING not possible in this case
+    //functions are also values so just like a number we can save a function also inside a variable //HOISTING does not work in this case when function saved inside a variable
+      const function1 = function greeting(){
+        console.log('hello2');
+      }; //function greeting() saved inside variable function1
+
+      console.log(function1);
+      console.log(typeof function1);
+
+  //we can run the function present inside a variable by simply typing the variable name and because it contains a function we can simply call it by putting brackets ()
+    function1(); //this will run the code present inside the greeting() function
+    
+  //In JS as long as there is a way to access a function, the function name (here greeting) is not needed
+    const function2 = function(){ //this will also work compare with function1 //this is called an Anonymous Function(function without a name) 
+        console.log('hello3');
+      }; 
+    function2();  
+
+  //values can be saved inside objects, functions are values -  so saving functions inside an object 
+    const object1 = {
+      num: 2,
+      funk: function greeting2(){ //this is a method (method = function saved inside an object)
+        console.log('Radhe Radhe');
+      }
+    };
+    object1.funk(); //Accessing function greeting2 using Dot Notation //() used for calling the function 
+
+    //Similarly here also we can use Anonymous Function
+    const object2 = {
+      num: 2,
+      funk: function(){ 
+        console.log('Radhe Radhe2');
+      }
+    };
+    object2.funk();
+
+  //Pass a value into a function
+    function display(param){
+      console.log('Hare ' + param);
+    }
+    display('Rama');
+    display('Krishna');
+
+  //as functions are values - Passing a function into another function
+    function run(param){
+      param(); //since param contains a function we are calling that function using ()
+    }
+    run(function() {
+      console.log('hello4');
+    }); // this is callback function (function that we are passing in is called callback function or a Callback)
+      */
+
+      /*
+  //setTimeout function - allows us to run a function in the future
+    //setTimeout is a built in function in JS, so we call setTimeout function using brackets()
+    //setTimeout function takes 2 parameters inside brackets(), 
+        //first parameter = a function that we want to run in the future
+        //second parameter = how long to wait before running this function == a number in milliseconds
+      setTimeout(function(){
+        console.log('timeout');
+        console.log('timeout2'); //all code inside the function here is also synchronous code
+      }, 3000); //so here setTimeout will wait for 3000ms or 3s and then call the bracket ke andarwala function
+    
+      console.log('next line');//this gets executed first //Asynchronous Code concept - the computer won't wait for line to finish before going to the next line 
+
+      //Synchronous Code on the other hand is when the computer will wait for one line to finish before going to the next line 
+      //all code we wrote in JS so far has been synchronous code, the only time the code becomes asynchronous is when we use certain features of JS like setTimeout
+      //so here setTimeout is the only part that is asynchronous //also the advantage of setTimeout being asynchronous is - it does not block our code for 3 sec here just sets timer and goes to next line immediately so this allows the code to do other things while the timer is running in the background
+
+  //setInterval function - another built in JS function allows us to keep running a function in the future 
+    //takes same 2 parameters as setTimeout function
+      setInterval(function(){
+        console.log('Interval');
+      }, 5000); //will keep running this function continuously with 5s interval
+
+      console.log('next line 2'); //setInterval is also asynchronous same like setTimeout function
+      */
+
+  //Another way to loop through an Array
+      //we have already learned previously how to loop through an array using a for loop and a while loop
+      //Another way to loop through an array is using a method of the array called forEach
+      [
+        'make dinner',
+        'wash bartan',
+        'watch youtube'
+      ].forEach(function(value, index){ //here value = element present at each index of the array
+        console.log('bittu ' + value + ' ' + index);
+      }); //this is the forEach method and it allows us to loop through the array //inside the brackets() we will give forEach method a function, basically here we are passing a function inside/into another function
+      //so here basically what forEach does is that it loops through the array elements/indexes one by one and for each of these values at each index it will save the element in the 'value' parameter and run the inside function
+      //.forEach() method is the preferred way to loop through an array because it is easier to read than a for loop and forEach also has another feature - function that we are giving inside forEach method for that function we can give a another parameter 'index' which tells us the position of the element in the array
+      
+      //continue in for loop lets us skip to to the next iteration or the next run of the loop but forEach methods don't have continue but in forEach method we can do the same thing with a return statement
+      [
+        'make dinner2',
+        'wash bartan2',
+        'watch youtube2'
+      ].forEach(function(value, index){ 
+
+        if(value === 'wash bartan2'){
+          return; //basically this does the same thing as continue in a for loop
+        }
+        console.log('bittu ' + value + ' ' + index);
+      }); 
+      //we also learned break in for loop that lets us exit a loop early. Unfortunately there is not an easy way to use break if we are using the forEach method, so if we need to use break to exit early then it's better to use the regular for loop instead of using the forEach method
+    </script>
+  </body>
+
+</html>

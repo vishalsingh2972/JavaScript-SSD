@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM Projects</title>
+  </head>
+ 
+  <body>
+    <p>YouTube Subscribe Button</p>
+    
+    <button onclick="
+      //console.log(document.querySelector('.js-subscribe-button'));
+      const buttonElement = document.querySelector('.js-subscribe-button');
+
+      /*
+      if(document.querySelector('.js-subscribe-button').innerHTML === 'Subscribe'){
+        document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
+      }
+      else{
+        document.querySelector('.js-subscribe-button').innerHTML = 'Subscribe';
+      }
+      */
+
+      if(buttonElement.innerHTML === 'Subscribe'){
+      //if(buttonElement.innertext === 'Subscribe') //innertext will just give the inner text without taking spaces under consideration
+        buttonElement.innerHTML = 'Subscribed';
+      }
+      else{
+        buttonElement.innerHTML = 'Subscribe';
+      }
+    " class="js-subscribe-button">Subscribe</button>
+
+    <script>
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM</title>
+  </head>
+ 
+  <body>
+    <button>hello</button>
+    <button class="js-button2">Second button</button> <!--common practise to start class name with 'js-' to make it clear that this class is being used in JavaScript-->
+
+    <script>
+
+      /*
+//we previously learned  about built-in objects(objects provided by JS) - console, Math, JSON, localStorage
+//DOM = another built-in object called the document object
+
+      document.body.innerHTML = 'Hare Krishna'; //document is a built-in object provided by JS //innerHTML changes the output of the webpage
+      document.title = 'Good DOM!'; //title changes title of the webpage
+  //and as innerHTML and title are properties of document object or are present inside the document object , hence the document object is linked to the webpage. Therefore the document object represents/models the webpage and that's why we call this feature the Document Object Model (DOM) 
+  //Basically the document object is linked to the webpage, so by making changes in certain properties or methods/functions of the document object it will also cause changes in the webpage 
+    */
+
+//Properties and Methods/Functions of document object
+
+    /*
+    //Properties of document object
+
+      //title property of document object
+      console.log(document.title);
+      document.title = 'Changed';
+      console.log(document.title);
+
+      //body property of document object
+      console.log(document.body);//.body property will take the entire <body> element of html and put it inside JS and this shows us one of the most important features of JS i.e *We can have HTML elements inside JavaScript* 
+      //The DOM combines JS and HTML together and it gives JS control of the webpage
+
+      //and whenever an HTML element is inside a JS , the HTML element is converted into a JS Object
+      console.log(typeof document.body); //<body> html element when added/put inside JS, so now body element is a JS Object when it is inside JS
+      //so now as body is an object it will also have properties and methods/functions that we can use, and one such property of the body object is .innerHTML
+      console.log(document.body.innerHTML); //innerHTML property controls all the HTML present inside the <body> element present here in this file so as you can see if we access innerHTML property it will give us or print all the HTML present here inside the <body> into the JS console
+
+      //and if we change the innerHTML property it will change the HTML inside the <body> element
+      document.body.innerHTML = 'badal gaya'; //so this will replace all of the HTML inside the body with the text 'badal gaya' //check inspect --> Elements on webpage
+      console.log(document.body.innerHTML);//see innerHTML changed //this shows us that innerHTML gives us control of all the HTML inside the <body> element
+
+      //another feature of innerHTML is that we can replace this HTML with new HTML code, and not just text (~like we did in case of replacing code by text 'badal gaya')
+      document.body.innerHTML = '<button>Bittu</button>'; //replacing existing HTML code present inside the <body> element with new HTML code //<button> - html code for creating a button
+      //so using the innerHTML property JS can replace the HTML inside the body to whatever we want. We have full control of the webpage
+      console.log(document.body.innerHTML);
+    */
+
+    ///*
+    //Methods of document object //reminder --> method = function saved inside an object
+
+      //querySelector() method of document object
+
+      //document.querySelector() method lets us get any element from the page(this file) and put it inside JS
+      console.log(document.querySelector('button')); //inside bracket we tell which HTML element to get from the page //like here 'button' will get the first button element from the page and put it inside our JS //so now as we already know whenever an HTML element is added inside a JS, the HTML element is converted into a JS Object so now the <button> element is just a JS object and now this button object has properties and methods that we can use //here we put/did console.log to check if 'button' added in JS or not 
+      console.log(document.querySelector('button').innerHTML);//Every HTML element has property .innerHTML which lets us control the HTML present inside that particular element //so here also we use .innerHTML in the button element to get all andar ka maal or andar ka HTML present inside the <button> element
+
+      //document.querySelector('button').innerHTML = 'Changed hello';//changing andar ka HTML of button by using .innerHTML property
+      document.querySelector('button')
+        .innerHTML = 'Changed hello'; //above can be written like this also with tab space in next line for .innerHTML = //tab provided so that we know/understand that it is a continuation of the previous line
+      console.log(document.querySelector('button').innerHTML);
+      //console.log(document.querySelector('button'));
+
+      console.log(document.querySelector('.js-button2'));//in .js-button2 the . is known as the class selector //in this case we are selecting the class js-button2
+      //HTML elements are JS objects, so here also the <button class="js-button2"> is also an object when it is stored or put in JS. And remember objects are values that can be saved inside a variable so even here we can save the <button class="js-button2"> object inside a variable 
+      console.log(document.querySelector('.js-button2').innerHTML);
+
+      const buttonElement = document.querySelector('.js-button2'); //buttonElement -  we usually end the variable name with Element or lm to make it clear that there is an HTML element(converted to an object when put inside JS) stored inside this variable
+      //so using DOM we can get the HTML elements from the page put it inside JS and then save it in a variable, so the DOM combines JS and HTML together and it gives JS full control of the webpage
+      console.log(buttonElement);
+      console.log(buttonElement.innerHTML);
+
+      //console.log(document.querySelector('body'));//similarly this will get the first body element from the page and put it inside our JS //in this case it is doing the same thing as what document.body did previously
+      //console.log(document.querySelector('body').innerHTML);
+    //*/
+
+    </script>
+    
+  </body>
+
+</html>

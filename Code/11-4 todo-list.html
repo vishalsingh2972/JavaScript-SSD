@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<!--Todo List version 3-->
+  <head>
+    <title>Todo List4</title>
+  </head> 
+ 
+  <body>
+    <p>Todo List</p> 
+    <input placeholder="Todo name" 
+      class="js-name-input">
+    <input type="date"
+      class="js-due-date-input">   <!--to make this input as date selector input elements has an attribute called type //so type determines what kind of input we can enter in the input box //if the type="text" which is the default value, then it will act like a textbox //if the type="number" then we can enter only number and no alphabets etc...-->
+    <button onclick="
+      addTodo();
+    ">Add</button>
+
+    <div class="js-todo-list todo-grid"> 
+    
+    </div>
+    
+    <script src="scripts/11-4 todo-list.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<!--till 7:03:22-->
+  <head>
+    <title>DOM Projects3</title>
+  </head>
+ 
+  <body>
+    <p>YouTube Subscribe Button</p>
+    
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+      //console.log('typing'); //so now everytime we type in the input it will print 'typing' in the JS console
+      //console.log(event);//inside onkeydown we are given a special object event by JS and it contains information about the event. Basically whatever we type info about that is stored in an event object
+      //Every event listener including onclick also gets an event object
+       console.log(event.key);
+       if(event.key === 'Enter'){
+        calculateTotal();
+       }
+    "> <!-- //input element is known as a void element as it does not require a closing tag //also we put the placeholder we used the placeholder attribute in input element //onkeydown="..." attribute - it runs JS when we press a key down on our keyboard -->
+
+    <!--so clicks, keydowns are known as events AND onclick, onkeydown are known as event listeners as they check for events and runs JS when those events happen -->
+
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+
+    <p class="js-total-cost">
+      
+    </p>
+
+    <script>
+      function calculateTotal(){
+        //console.log('calculate function ke andar pahuch gaya')
+
+        //console.log(document.querySelector('.js-cost-input'));
+        const inputElement = document.querySelector('.js-cost-input');
+        //console.log(typeof document.querySelector('.js-cost-input')); //or console.log(typeof inputElement); //object
+        
+//for injecting value we previously used innerHTML property however the <input> element does not have any HTML inside, so for <input> elements we are going to use a different property called .value
+        //console.log(inputElement);
+        console.log(inputElement.value);
+        //let cost = inputElement.value; //inputElement.value is a string value, so value that gets stored in cost here is a string value
+        //console.log(typeof cost); //string
+
+//and remember whenever we get a .value from the DOM, the value will be a string type
+        //console.log(typeof inputElement.value); //string
+        //console.log(typeof inputElement); //object
+
+        let cost = Number(inputElement.value); //so to manually convert value of inputElement.value from a string to a number we use the built-in JS function Number();
+      //  console.log(cost);
+      //  console.log(typeof cost); //number
+
+        if(cost < 40){
+          cost = cost + 10;
+        }
+        console.log(`The total cost in console is $${cost}`);
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `The total cost is $${cost}`;
+      }
+
+      function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-button');
+     
+        if(buttonElement.innerHTML === 'Subscribe'){
+      //if(buttonElement.innertext === 'Subscribe') //innertext will just give the inner text without taking spaces under consideration
+          buttonElement.innerHTML = 'Subscribed';
+        }
+        else{
+          buttonElement.innerHTML = 'Subscribe';
+        }
+      }
+    </script>
+  </body>
+
+</html>

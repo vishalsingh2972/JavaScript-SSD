@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM Projects4</title>
+  </head>
+ 
+  <body>
+    <p>YouTube Subscribe Button</p>
+    
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+      //handleCostKeydown();
+      handleCostKeydown(event);
+    ">
+
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+
+    <p class="js-total-cost">
+      
+    </p>
+
+    <script>
+//More details about JS
+      String(25);//manually convert from a number to a string //here number 25 converted to string 25
+
+      console.log('20' - 7);//special behavior of strings - if a string only contains a number like here '20' and we -or*or/ in this case JS will automatically convert the string into a number(in this case '20' string converted to 20 number)=>'20' - 7=>20 - 7=>13 
+      console.log('20' * 7);
+      console.log('20' / 7);
+      //so these are examples of type coercion or automatic type conversion, however it is not recommended to do math with strings like this because adding works differently as below
+      console.log('20' + 7); //207 //so as adding string works differently it is best practise to always do math using numbers, don't do math using strings
+     //If we need to it is better to first manually convert all to numbers using the Number() function and then add them      
+      console.log(Number('20') + 7);
+
+      //Window object - it is a Built-in object //like we learned previously that the document object represents the webpage, similarly the window object represents the browser 
+      //because it represents the browser, everything inside the browser is inside the window object
+      //the wepage is present inside the browser so basically the document object that represents the webpage is inside the window object that represents the browser
+
+      window.docoument; //this will give us the same document object that we have been using till now
+      window.console; //similarly this will give us the console object that we have been using till now //console is also present inside the browser
+      window.console.log('Radhe Radhe'); //this will do the same thing as console.log('Radhe Radhe');
+      window.alert; //pop ups are also part of the browser so window.alert; will give us the same alert function that we have been using till now
+//However we never again and again type window.docoument or window.console.log(); etc we simply type console.log() and that is because the window object has a shortcut,we don't have to type window. at the front everytime, we can just type document or console.log(); and JS will automatically type/consider window. at the front for us. Therefore window is a built-in object that represents the browser and we don't have to type out window. ourselves because JS adds it for us automatically but still good to know how things work BTS
+
+      function handleCostKeydown(event){
+        //console.log(event.key); 
+          if(event.key === 'Enter'){
+            calculateTotal();
+          }
+      }
+
+      function calculateTotal(){
+        //console.log('calculate function ke andar pahuch gaya')
+
+        //console.log(document.querySelector('.js-cost-input'));
+        const inputElement = document.querySelector('.js-cost-input');
+        //console.log(typeof document.querySelector('.js-cost-input')); //or console.log(typeof inputElement); //object
+
+        let cost = Number(inputElement.value); //so to manually convert value of inputElement.value from a string to a number we use the built-in JS function Number();
+
+        if(cost < 40){
+          cost = cost + 10;
+        }
+        console.log(`The total cost in console is $${cost}`);
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `The total cost is $${cost}`;
+      }
+
+      function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-button');
+     
+        if(buttonElement.innerHTML === 'Subscribe'){
+      //if(buttonElement.innertext === 'Subscribe') //innertext will just give the inner text without taking spaces under consideration
+          buttonElement.innerHTML = 'Subscribed';
+        }
+        else{
+          buttonElement.innerHTML = 'Subscribe';
+        }
+      }
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM ProjectsCSS</title>
+    <style>
+
+      body{ /* better solution than using p{} which styles only all the paragraph elements (<p>) on the page while body{} styles everything present inside the <body> element */
+        font-family: Arial;
+      } /* a good practise to write styles of <body> element at the top of all styles  so that if we need to we can easily override it later in the future*/
+
+      .subscribe-button{
+        border:none;
+        background-color: black;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+
+      .is-subscribed{ /* here .is-subscribed is written below .subscribe-button so that .is-subscribed can override styles of .subscribe-button*/
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+
+      .cost-input{
+        font-size: 15px;
+        /*
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        */
+        padding: 10px;
+      }
+
+      .calculate-button{
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 15px; /* first value vertical padding(top and bottom) and second value horizontal padding(left and right) */
+        cursor: pointer;
+      }
+    </style>
+  </head>
+ 
+  <body>
+    <p>YouTube Subscribe Button</p>
+    
+    <!--an element can have multiple classes, so here we are using 2 classes for Subscribe button one class for/being used by JS - js-subscribe-button class and one class for CSS - subscribe-button class
+    //(good practise to add different class for JS and CSS in the same element)-->
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button subscribe-button"> 
+    Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+      //handleCostKeydown();
+      handleCostKeydown(event);
+    ">
+
+    <button onclick="
+      calculateTotal();
+    " class="calculate-button">Calculate</button>
+
+    <p class="js-total-cost">
+    </p>
+
+    <script>
+      function handleCostKeydown(event){
+        //console.log(event.key); 
+          if(event.key === 'Enter'){
+            calculateTotal();
+          }
+      }
+
+      function calculateTotal(){
+        //console.log('calculate function ke andar pahuch gaya')
+
+        //console.log(document.querySelector('.js-cost-input'));
+        const inputElement = document.querySelector('.js-cost-input');
+        //console.log(typeof document.querySelector('.js-cost-input')); //or console.log(typeof inputElement); //object
+
+        let cost = Number(inputElement.value); //so to manually convert value of inputElement.value from a string to a number we use the built-in JS function Number();
+
+        if(cost < 40){
+          cost = cost + 10;
+        }
+        console.log(`The total cost in console is $${cost}`);
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `The total cost is $${cost}`;
+      }
+
+      function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-button');
+     
+        if(buttonElement.innerHTML === 'Subscribe'){
+      //if(buttonElement.innertext === 'Subscribe') //innertext will just give the inner text without taking spaces under consideration
+          buttonElement.innerHTML = 'Subscribed';
+          buttonElement.classList.add('is-subscribed'); //.add() method = adds a class to an element //in add() inside the brackets we will put a string and this string is the class that we want to add when we click this button //here we added class with name is-subscribed //so now everytime we click this button it will add a class to the button called is-subscribed
+        }
+        else{
+          buttonElement.innerHTML = 'Subscribe';
+          buttonElement.classList.remove('is-subscribed'); //.remove() method = removes a class from an element //so here remove() will remove the class 'is-subscribed' that we previously added using .add() method (as shown above)
+        }
+//so here as we learned previously that the HTML elements are converted to JS objects when put inside JS, and these JS objects can have properties and methods. Few such properties are .innerHTML and .innertext, every element(now an object inside JS) has another property that we can use called .classlist //.classlist = class list gives us control of the class attribute //also .classlist itself is an object so classlist itself also has properties and methods that we can use,Examples of methods of classlist object are .add() method and .remove() method
+      }
+    </script>
+  </body>
+
+</html>

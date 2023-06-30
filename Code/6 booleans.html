@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Booleans</title>
+  </head>
+
+  <body>
+    <script>
+      //true
+      //false
+      //console.log(typeof 'true'); 
+      //console.log(typeof true);
+
+      //console.log(3 > 5);
+
+      //== vs ===
+      //console.log(5 == '5.00'); //== first converts both to same type then checks if they are equal or not so here true
+      //console.log(5 === '5.00'); //here false
+      //In JS we prefer === to check/compare values as == can give errors (like 5 == '5.00' are different as one is a number and other is a string but == gives true) so better to use === instead of == to avoid the conversion behavior
+
+      //same logic applies to !=, so in JS we use !== instead of != to avoid the conversion behavior
+
+      if(true){ //if(!false){
+        //console.log('hello bhaijaan');
+      }
+      else{
+        //console.log('namaste ammijaan');
+      }
+
+      //const age = 30;
+      const age = 15;
+
+      if(age >= 16){ //notice that between brackets we don't have to just put boolean value, we can as well put any code that results in a boolean value
+        //console.log('You can drive');
+      }
+      else if(age >= 14){
+        //console.log('Almost there!');
+      }
+      else{
+        //console.log('Auto karle bhai');
+      }
+
+      // console.log(true && false);
+      // console.log(0.2 >= 0 && 0.2 < 1/3);
+
+      // console.log(true || false);
+      // console.log(!false); 
+      //console.log(!true);
+
+/*
+//Truthy and Falsy
+//Example 1    
+      if(5){ //here 5 is known as a Truthy value because it behaves just like true
+        console.log("Paanch");
+      }
+
+      if(0){ //here 0 is known as a Falsy value because it behaves just like false
+        console.log("Shunya");
+      }
+
+//List of Falsy values in JS are 0, false, '', NaN, undefined, null //NaN = Not a Number
+//All others not in the falsy values list are Truthy values
+
+//Example 2
+      const cartQuantity = 5;
+      //const cartQuantity = 0;
+
+      if(cartQuantity) { //will behave in same way as if(cartQuantity > 0) {
+        console.log('cart has products'); //this will only get printed if our cart has products
+      }
+
+//so if cartQuantity is not zero, suppose cartQuantity=5; then both cartQuantity>0 will give true and cartQuantity will give truthy....so in this case they both behave like true
+//similarly if cartQuantity is zero, suppose cartQuantity=0; then both cartQuantity>0 will give false and cartQuantity will give falsy....so in this case also both ebhave like false
+//so instead of doing/using the long comparisons cartQuantity>0 in if() we can simply just put cartQuantity and make use of Truthy and Falsy values as a shortcut method
+
+//Truthy and Falsy values also work with logical operators
+      console.log(!0);// 0 i.e is falsy value here also behaves as false as console.log(!0); is same as console.log(!false);
+
+
+      console.log('text' / 5); //output is NaN //we get NaN when we do some invalid math
+
+
+      let variable1;
+      console.log(variable1); //undefined
+
+      //we cannot use undefined with const like we did for let as 'const' declarations must be initialized, so we put undefined to a const variable like below
+      const variable2 = undefined;
+      console.log(variable2);
+*/
+
+//Shortcuts for If-Statements
+  //Ternary Operator ?:
+      const result = true ? 'statement is correct' : 'statement is wrong';
+      //const result = 3>50 ? 'statement is correct' : 'statement is wrong';
+      //const result = 0 ? 'statement is correct' : 'statement is wrong';
+      console.log(result);
+
+
+  //Guard Operator &&  
+      false && console.log('hello'); //short circuit evaluation -  stops early just runs left part and stops and doesn't even run the code on the right //so we can use value on the left (here false) to block or guard the value on the right (here console.log('hello')) 
+
+      const message = false && 'hello1'; //first value or left value is falsy so guard operator stops off early and the result will be the first value
+      //const message = 0 && 'hello1'; //0 is a falsy value
+      console.log(message);
+
+      const message2 = true && 'hello2';//first value or left value is not falsy so guard operator does not stops off early and the result will be the second value
+      //const message2 = 1 && 'hello2'; //1 is not a falsy value //1 is Truthy
+      console.log(message2);
+  //Therefore Guard Operator && Stops early(short-circuits) if first value is falsy
+  
+
+  //Default Operator ||  
+    //Shopping cart example where any currency can be chosen and choosing of currency is optional and if we don't choose a currency we will use the default value or default currency of 'USD'
+
+      const currency = 'EUR' || 'USD'; //currency chosen as EUR //so here Stops early(short-circuits) as first value is truthy //stops at first value(left side) 
+      //const currency = null || 'USD'; //no currency chosen //does not Stops early(short-circuits) and goes to second value(default value/default currency) //jumps to right side
+      //const currency = NaN || 'USD'; //no currency chosen //jumps to right side
+      //const currency = undefined || 'USD'; //no currency chosen //jumps to right side
+      //const currency = false || 'USD'; //no currency chosen //jumps to right side
+      //const currency = true || 'USD'; //stops at first value(left side)
+    
+    //so we can use the OR operator to set a default value so when we use the OR operator like this we call it the Default Operator ||
+  
+      console.log(currency);
+      
+  //Therefore Default Operator || Stops early(short-circuits) if first value is truthy
+    </script>
+  </body>
+
+</html>
