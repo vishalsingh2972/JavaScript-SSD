@@ -1,6 +1,6 @@
 //Todo List version 3
 
-const todoList = []; //initially put display items on wepage as empty
+const todoList = []; //initially put display items on webpage as empty
 
 renderTodoList(); 
 
